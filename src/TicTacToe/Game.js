@@ -69,7 +69,7 @@ const Board = () => {
         className="square"
         style={squareStyle}
         onClick={onPress}>
-          {value}
+          {squares[num]}
       </div>
     );
   }
