@@ -7,7 +7,7 @@ const rowStyle = {
 const squareStyle = {
   'width':'60px',
   'height':'60px',
-  'backgroundColor': '#ddd',
+  'backgroundColor': '#b8b8b8',
   'margin': '4px',
   'display': 'flex',
   'justifyContent': 'center',
@@ -62,7 +62,7 @@ const Board = () => {
       <div
         className="square"
         style={squareStyle}
-        onClick={() => { setToggle(!isToggle); setSquares(squares[num] = turn); console.log(value); } }>
+        onClick={() => { setToggle(!isToggle); console.log(value); } }>
           {value}
       </div>
     );
