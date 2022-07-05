@@ -51,18 +51,24 @@ const buttonStyle = {
 
 
 const Board = () => {
-  const [isToggle, setToggle] = useState(true);
-  const turn = isToggle ? "X" : "O";
-  const [squares, setSquares] = useState(Array(9).fill('ha'));
+  const [isToggle, setToggle] = useState(true)
+  const turn = isToggle ? "X" : "O"
+  const [squares, setSquares] = useState(Array(9).fill('ha'))
 
   function Square({ num }){ 
-    const [value, setValue] = useState(num);
+    const [value, setValue] = useState(num)
+
+    function onPress() {
+      setToggle(!isToggle)
+      squares[num] = turn
+      console.log(value)
+    }
 
     return (
       <div
         className="square"
         style={squareStyle}
-        onClick={() => { setToggle(!isToggle); console.log(value); } }>
+        onClick={onPress}>
           {value}
       </div>
     );
