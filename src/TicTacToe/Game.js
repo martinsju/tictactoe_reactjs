@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 
 const rowStyle = {
   display: 'flex'
@@ -29,7 +29,9 @@ const boardStyle = {
 const containerStyle = {
   'display': 'flex',
   'alignItems': 'center',
-  'flexDirection': 'column'
+  'flexDirection': 'column',
+  'height': '100vh',
+  'backgroundColor': '#8b8b8b'
 }
 
 const instructionsStyle = {
@@ -53,15 +55,17 @@ const buttonStyle = {
 const Board = () => {
   const [isToggle, setToggle] = useState(true)
   const turn = isToggle ? "X" : "O"
-  const [squares, setSquares] = useState(Array(9).fill('ha'))
+  const [squares, setSquares] = useState(Array(9).fill(''))
 
   function Square({ num }){ 
     const [value, setValue] = useState(num)
 
     function onPress() {
-      setToggle(!isToggle)
-      squares[num] = turn
-      console.log(value)
+      if (squares[num] === '') {
+        setToggle(!isToggle)
+        squares[num] = turn
+      }
+      console.log(squares[num])
     }
 
     return (
